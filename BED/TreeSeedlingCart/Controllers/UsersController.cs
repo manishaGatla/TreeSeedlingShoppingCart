@@ -29,5 +29,13 @@ namespace TreeSeedlingCart.Controllers
             var addedUser = await _usersRepository.AddUserAsync(user);
             return CreatedAtAction(nameof(AddUser), new { id = addedUser.Id }, addedUser);
         }
+
+        [HttpGet]
+        [Route("getById")]
+        public async Task<IActionResult> GetUserById([FromQuery] int id)
+        {
+            var userDetails = await _usersRepository.GetUserByIdAsync(id);
+            return Ok(userDetails);
+        }
     }
 }
