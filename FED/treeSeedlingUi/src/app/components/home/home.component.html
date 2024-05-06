@@ -1,0 +1,21 @@
+<section class="items-grid">
+
+    <div class="item" *ngFor="let item of products">
+    
+      <h2>{{ item.description }}</h2>
+      <p> Type: {{ item.type }}</p>
+      <p> Avaliable Quantity : {{ item.quantity }}</p>
+      <div class="item-footer pd-b-13">
+        <span class="item-price"> Price (in $): {{ item.price }}</span>
+        
+      </div>
+      <div class="item-footer pd-b-13">
+        <span><label for="quantity">Selected Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" step="1" class="quant-wd" [(ngModel)]="item.selectedQuantity"></span>
+          <button (click)="addToCart(item)">Add to Cart</button>
+      </div>
+    </div>
+    <div *ngIf="products && products.length == 0 " class="mr-l-180 pd-15">
+      <span class="c-r">No Products Avaliable</span>
+    </div>
+  </section>

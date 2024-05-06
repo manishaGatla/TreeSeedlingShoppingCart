@@ -11,6 +11,12 @@ namespace TreeSeedlingCart.Controllers
 
         private readonly IWishListRepo _wishListRepo;
 
+        public WishListController(IWishListRepo wishListRepo)
+        {
+            _wishListRepo = wishListRepo;
+        }
+
+
         [HttpGet]
         [Route("getWishListsById")]
         public async Task<IActionResult> GetWishListsById([FromQuery] int id)

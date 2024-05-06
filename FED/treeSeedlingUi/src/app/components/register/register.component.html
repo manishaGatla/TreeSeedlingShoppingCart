@@ -1,0 +1,52 @@
+<section class="center">
+    <span class="c-r" *ngIf="errorMessage"> {{errorMessage}}</span>
+</section>
+
+<section class="center">
+    <span class="c-g" *ngIf="successMessage"> {{successMessage}}</span>
+</section>
+
+<section class="login-container flex-d">
+    <div class="form-group">
+      <label for="name" class="mr-b-10">User Name</label>
+      <input class="wd-25"type="text" id="name" [(ngModel)]="userName" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="mr-b-10">First Name</label>
+      <input class="wd-25"type="text" id="firstName"  [(ngModel)]="firstName"  placeholder="Enter your first name" required>
+    </div>
+    <div class="form-group">
+        <label for="phone" class="mr-b-10">Last Name</label>
+        <input class="wd-25"type="text" id="lastName"  [(ngModel)]="lastName" placeholder="Enter your last name" required>
+      </div>
+    <div class="form-group">
+      <label for="email" class="mr-b-10">Email</label>
+      <input class="wd-25"type="email" id="email"  [(ngModel)]="email" placeholder="Enter your email" required>
+      <span  *ngIf="!isValidEmail(email)" class="error-message"> Invalid email format</span> 
+      
+    </div>
+    <div class="form-group">
+      <label for="password" class="mr-b-10">Password</label>
+      <input class="wd-25"type="password" id="password"  [(ngModel)]="password" placeholder="Enter your password" required>
+    </div>
+    <div class="form-group">
+      <label for="password" class="mr-b-10">Confirm Password</label>
+      <input class="wd-25"type="password" id="password"  [(ngModel)]="confirmPassword" (change)="checkPasswordValidation()"placeholder="Enter your password" required>
+      <span  *ngIf="!isPasswordNotValid" class="error-message"> Password Mismatch</span> 
+    </div>
+
+</section>
+
+
+<section class="login-container">
+  <div class="form-group">
+    <button type="submit" class="sub-btn" (click)="onSubmit()">Submit</button>
+  </div>
+</section>
+
+<section class="login-container">
+    <p class="ft-s-30">
+        Already have an account <a routerLink="/login" routerLinkActive="active">Login</a>
+    </p>
+</section>
+  
