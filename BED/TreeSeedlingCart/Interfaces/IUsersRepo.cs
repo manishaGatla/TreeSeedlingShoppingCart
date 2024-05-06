@@ -11,6 +11,8 @@ namespace TreeSeedlingCart.Interfaces
         Task<Users> AddUserAsync(Users user);
         Task UpdateUserAsync(Users user);
         Task DeleteUserAsync(int id);
+
+        Task<Users> GetUserByUserNameAsync(string userName);
     }
 }
 

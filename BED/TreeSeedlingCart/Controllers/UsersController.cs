@@ -37,5 +37,13 @@ namespace TreeSeedlingCart.Controllers
             var userDetails = await _usersRepository.GetUserByIdAsync(id);
             return Ok(userDetails);
         }
+
+        [HttpGet]
+        [Route("getByUserName")]
+        public async Task<IActionResult> GetUserByUserName([FromQuery] string userName)
+        {
+            var userDetails = await _usersRepository.GetUserByUserNameAsync(userName);
+            return Ok(userDetails);
+        }
     }
 }

@@ -6,5 +6,7 @@
         public int UserId { get; set; }
         public int TreeId { get; set; }
         public int Quantity { get; set; }
+
+        public virtual Trees? Tree { get; set; }
     }
 }

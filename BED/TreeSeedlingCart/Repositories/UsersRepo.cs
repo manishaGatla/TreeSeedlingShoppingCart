@@ -25,6 +25,11 @@ namespace TreeSeedlingCart.Repositories
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
+        public async Task<Users> GetUserByUserNameAsync(string userName)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userName.ToLower());
+        }
+
         public async Task<Users> AddUserAsync(Users user)
         {
             _context.Users.Add(user);
