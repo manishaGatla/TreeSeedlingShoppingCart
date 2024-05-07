@@ -18,7 +18,7 @@ namespace TreeSeedlingCart.Data
         public Microsoft.EntityFrameworkCore.DbSet<CartItems> CartItems { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<ShippingAddresses> ShippingAddresses { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Orders> Orders { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<WishList> Wishlists { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<WishList> Wishlist { get; set; }
 
       
     }

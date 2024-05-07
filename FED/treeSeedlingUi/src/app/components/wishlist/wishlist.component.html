@@ -1,0 +1,16 @@
+<div class="wishlist-container">
+    <div *ngFor="let item of wishlistItems" class="wishlist-item">
+      <div (click)="toggleItemDetails(item.id)">
+        <h3>{{ item.tree.description }} ({{ item.tree.type }})</h3>
+        <p>$ {{ item.tree.price }}</p>
+      </div>
+      <div *ngIf="expandedItemId === item.id" class="item-details">
+        <button (click)="removeFromWishlist(item.id)">Remove from Wishlist</button>
+        <button (click)="moveToCart(item.treeId,item.id)">Move to Cart</button>
+      </div>
+    </div>
+    <div *ngIf="wishlistItems && wishlistItems.length === 0" class="no-items">
+      <p>No items in your wishlist.</p>
+    </div>
+  </div>
+  

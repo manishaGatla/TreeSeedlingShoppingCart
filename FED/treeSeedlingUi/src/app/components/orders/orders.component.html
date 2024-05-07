@@ -8,7 +8,7 @@
       <h4>Items</h4>
       <ul>
         <li *ngFor="let item of order.items">
-          Tree ID: {{ item.treeId }}, Quantity: {{ item.quantity }}
+          {{ item.description }}, Quantity: {{ item.quantity }}
         </li>
       </ul>
       <h4>Shipping Address</h4>
