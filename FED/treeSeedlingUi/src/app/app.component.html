@@ -7,7 +7,7 @@
       <li *ngIf="!loginService.isLoginSuccessful"><a routerLink="/login" routerLinkActive="active">Login</a></li>
       <li *ngIf="loginService.isLoginSuccessful "><a routerLink="/home" routerLinkActive="active">Home</a></li>
       <li  *ngIf="loginService.isLoginSuccessful"><a routerLink="/orders" routerLinkActive="active">Orders</a></li>
-      <!-- <li  *ngIf="loginService.isLoginSuccessful"><a routerLink="/profileDetails" routerLinkActive="active">Profile Details</a></li> -->
+      <li  *ngIf="loginService.isLoginSuccessful"><a routerLink="/wishlist" routerLinkActive="active">Wish List</a></li>
       <li *ngIf="loginService.isLoginSuccessful "><a routerLink="/cart" routerLinkActive="active">Cart</a></li>     
       <li *ngIf="loginService.isLoginSuccessful"><a routerLink="/register" (click)="logOut()" routerLinkActive="active">LogOut</a></li>
       

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,9 @@ export class HomeComponent implements OnInit {
     this.getProducts();
   }
 
-  constructor(public loginService: LoginService, private productService: ProductsService, private router: Router, private cartService: CartService) {}
+  constructor(public loginService: LoginService, private productService: ProductsService, private router: Router,
+    private wishlistService: WishlistService,
+     private cartService: CartService) {}
 
 
   getProducts(){
@@ -53,6 +56,19 @@ export class HomeComponent implements OnInit {
     
     this.cartService.addCartItem(body).subscribe((res: any)=>{
       this.router.navigateByUrl('/cart');
+    })
+  }
+
+
+  addToWishList(item: any){
+    const body  ={
+      userId :this.loginService.profileDetails.id ,
+      treeId: item.id,
+    };
+   
+    
+    this.wishlistService.addWishlistItem(body).subscribe((res: any)=>{
+      this.router.navigateByUrl('/wishlist');
     })
   }
  

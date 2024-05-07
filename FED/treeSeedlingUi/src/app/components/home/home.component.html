@@ -14,6 +14,9 @@
           <input type="number" id="quantity" name="quantity" min="1" step="1" class="quant-wd" [(ngModel)]="item.selectedQuantity"></span>
           <button (click)="addToCart(item)">Add to Cart</button>
       </div>
+      <div class="item-footer pd-b-13">        
+          <button (click)="addToWishList(item)">Add to Wishlist</button>
+      </div>
     </div>
     <div *ngIf="products && products.length == 0 " class="mr-l-180 pd-15">
       <span class="c-r">No Products Avaliable</span>

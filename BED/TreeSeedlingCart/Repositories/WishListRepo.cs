@@ -1,8 +1,7 @@
-﻿using TreeSeedlingCart.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TreeSeedlingCart.Data;
 using TreeSeedlingCart.Interfaces;
 using TreeSeedlingCart.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
 
 namespace TreeSeedlingCart.Repositories
 {
@@ -17,7 +16,29 @@ namespace TreeSeedlingCart.Repositories
 
         public async Task<List<WishList>> GetWishListsByIdAsync(int id)
         {
-            return await _context.Wishlists.Where(u => u.Id == id).ToListAsync();
+            return await _context.Wishlist.Where(u => u.Id == id).ToListAsync();
+        }
+
+        public async Task<List<WishList>> GetWishListsByUserIdAsync(int id)
+        {
+            return await _context.Wishlist.Where(u => u.UserId == id).Include(u => u.Tree).ToListAsync();
+        }
+
+        public async Task<WishList> AddWishListItems(WishList item)
+        {
+            _context.Wishlist.Add(item);
+            await _context.SaveChangesAsync();
+            return item;
+        }
+
+        public async Task DeleteWishListItem(int id)
+        {
+            var item = await _context.Wishlist.FindAsync(id);
+            if (item != null)
+            {
+                _context.Wishlist.Remove(item);
+                await _context.SaveChangesAsync();
+            }
         }
 
     }
